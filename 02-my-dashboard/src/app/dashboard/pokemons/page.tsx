@@ -1,4 +1,6 @@
-import { PokemonsResponse, SimplePokemon } from "@/app/pokemons";
+import { PokemonsResponse, SimplePokemon } from "@/pokemons";
+import { PokemonGrid } from '../../../pokemons/components/PokemonGrid';
+import { notFound } from "next/navigation";
 
 const getPokemons = async (
   limit = 20,
@@ -13,11 +15,26 @@ const getPokemons = async (
     name: pokemon.name,
   }));
 
+  // throw new Error('No debio suceder')
+  // return notFound()
+
   return pokemons;
 };
 
 export default async function PokemonsPage() {
   const pokemons = await getPokemons(151);
 
-  return <div>{JSON.stringify(pokemons)}</div>;
+  return (
+
+    <div className="flex flex-col">
+
+      <span className="text-5xl my-2">Listado de Pokémons <small>estático</small></span>
+
+      <div className="flex flex-wrap gap-10 items-center justify-center">
+
+        <PokemonGrid pokemons={pokemons} />
+
+      </div>
+    </div>
+  );
 }
