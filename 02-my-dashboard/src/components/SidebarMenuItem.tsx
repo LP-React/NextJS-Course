@@ -19,6 +19,7 @@ export const SidebarMenuItem = ({ path, icon, title, subTitle }: Props) => {
       className={`w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 ${
         currentPath === path ? "bg-blue-800 " : "hover:bg-white/5"
       }   transition ease-linear duration-150`}
+      prefetch={true}
     >
       <div>{icon}</div>
       <div className="flex flex-col">
