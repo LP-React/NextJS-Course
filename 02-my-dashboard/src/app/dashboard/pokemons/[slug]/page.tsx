@@ -9,6 +9,8 @@ interface Props {
     }>
 }
 
+
+
 export async function generateStaticParams() {
 
     const data: PokemonsResponse = await fetch('https://pokeapi.co/api/v2/pokemon?limit=250').then(res => res.json())
